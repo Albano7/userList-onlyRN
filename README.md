@@ -3,6 +3,10 @@
 ## Descripción del proyecto
 Este proyecto es una aplicación móvil desarrollada con React Native que muestra un listado de usuarios. La aplicación consume datos de una API y los presenta en una interfaz de usuario atractiva y responsive.
 
+## Demo
+- Puedes decargar la app mediante el siguiente enlace [React Native App](https://drive.google.com/file/d/1dSLC4YnfihLFYkUSGySRygcadBazPGzu/view?usp=drive_link) 
+- Puedes ver el video demo con el siguiente enlace [React Native App User List](https://youtu.be/WQYM4b8G3Kk?si=ELnbUpgELlJSx27w) 
+
 ## Tecnologías utilizadas
 - React Native
 - React Native CLI (sin Expo)
