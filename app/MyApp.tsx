@@ -7,10 +7,10 @@ import { RootState } from "@app/store";
 import Theme from "@app/styles";
 import MyAppItem from "@app/components/MyAppItem";
 
-const MyApp = () => {
+const MyApp = ({ testID }: { testID: string }) => {
   const usersList = useSelector((state: RootState) => state.users.usersList)
   const usersListError = useSelector((state: RootState) => state.users.isError)
-  
+
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const MyApp = () => {
   };
 
   return (
-    <View style={Theme.MyApp.container}>
+    <View style={Theme.MyApp.container} testID={testID}>
       <View style={Theme.MyApp.headerContainer}>
         <Text style={Theme.MyApp.headerTitle}>
           Listado de usuarios
@@ -35,25 +35,27 @@ const MyApp = () => {
       </View>
       <View style={Theme.MyApp.contentContainer}>
         <FlatList
+          testID="flat-list"
           style={Theme.MyApp.list}
           data={usersList}
-          renderItem={({item}) => <MyAppItem item={item} />}
+          renderItem={({ item }) => <MyAppItem item={item} />}
           ItemSeparatorComponent={() => <View style={Theme.MyApp.listSeparator} />}
           refreshControl={
             <RefreshControl
+              testID="refresh-control"
               refreshing={refreshing}
               onRefresh={onRefresh}
               colors={[Colors.bg]}
-              tintColor={Colors.bg} 
+              tintColor={Colors.bg}
             />
           }
-          ListEmptyComponent={() => 
-            usersListError?
+          ListEmptyComponent={() =>
+            usersListError ?
               <Text style={Theme.MyApp.errorText}>
                 Ups! hay un error, vuelva a intentarlo
               </Text>
               :
-              <ActivityIndicator size="large" color={Colors.bg}/>}
+              <ActivityIndicator size="large" color={Colors.bg} />}
         />
       </View>
     </View>

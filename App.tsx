@@ -18,13 +18,13 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={Theme.App.container}>
+    <SafeAreaView style={Theme.App.container} testID='safe-area-view'>
       <StatusBar
         barStyle={'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Provider store={store}>
-        <MyApp />
+        <MyApp testID='my-app' />
       </Provider>
     </SafeAreaView>
   );
